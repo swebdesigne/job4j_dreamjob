@@ -12,7 +12,7 @@ public class PostStore {
     private static final PostStore INST = new PostStore();
 
     private final Map<Integer, Post> posts = new ConcurrentHashMap<>();
-    private final AtomicInteger inc = new AtomicInteger();
+    private final AtomicInteger inc = new AtomicInteger(3);
 
 
     private PostStore() {

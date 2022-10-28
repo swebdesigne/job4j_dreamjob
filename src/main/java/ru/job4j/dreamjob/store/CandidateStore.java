@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CandidateStore {
     private static final CandidateStore INST = new CandidateStore();
     private final Map<Integer, Candidate> candidates = new ConcurrentHashMap<>();
-    private final AtomicInteger inc = new AtomicInteger();
+    private final AtomicInteger inc = new AtomicInteger(3);
 
     public CandidateStore() {
         candidates.put(1, new Candidate(1, "Junior Java Job", "Candidate 1", LocalDate.now()));
