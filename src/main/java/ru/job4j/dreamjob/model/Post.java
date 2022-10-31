@@ -1,22 +1,25 @@
 package ru.job4j.dreamjob.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Post {
+public class Post implements Serializable {
     private int id;
     private String name;
     private boolean visible;
+    private City city;
     private String description;
     private LocalDateTime created;
 
     public Post() {
     }
 
-    public Post(int id, String name, String description, LocalDateTime created) {
+    public Post(int id, String name, String description, City city, LocalDateTime created) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.city = city;
         this.created = created;
     }
 
@@ -36,6 +39,22 @@ public class Post {
         this.name = name;
     }
 
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
     public LocalDateTime getCreated() {
         return created;
     }
@@ -50,13 +69,6 @@ public class Post {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public boolean isVisible() {
-        return visible;
-    }
-    public void setVisible(boolean visible) {
-        this.visible = visible;
     }
 
     @Override

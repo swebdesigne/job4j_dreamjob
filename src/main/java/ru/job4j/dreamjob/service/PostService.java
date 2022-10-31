@@ -11,9 +11,11 @@ import java.util.Collection;
 @Service
 public class PostService {
     private final PostStore store;
+    private final CityService cityService;
 
-    public PostService(PostStore store) {
+    public PostService(PostStore store, CityService cityService) {
         this.store = store;
+        this.cityService = cityService;
     }
 
     public Collection<Post> findAll() {
@@ -21,10 +23,12 @@ public class PostService {
     }
 
     public void update(Post post) {
+        post.setCity(cityService.findById(post.getCity().getId()));
         store.update(post);
     }
 
     public void add(Post post) {
+        post.setCity(cityService.findById(post.getCity().getId()));
         store.add(post);
     }
 

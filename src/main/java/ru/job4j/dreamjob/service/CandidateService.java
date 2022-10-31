@@ -10,25 +10,29 @@ import java.util.Collection;
 @ThreadSafe
 @Service
 public class CandidateService {
-    private final CandidateStore store;
+    private final CandidateStore candidateStore;
+    private final CityService cityService;
 
-    public CandidateService(CandidateStore store) {
-        this.store = store;
+    public CandidateService(CandidateStore store, CityService cityService) {
+        this.candidateStore = store;
+        this.cityService = cityService;
     }
 
     public Collection<Candidate> findAll() {
-        return store.findAll();
+        return candidateStore.findAll();
     }
 
     public void update(Candidate candidate) {
-        store.update(candidate);
+        candidate.setCity(cityService.findById(candidate.getCity().getId()));
+        candidateStore.update(candidate);
     }
 
     public void add(Candidate candidate) {
-        store.add(candidate);
+        candidate.setCity(cityService.findById(candidate.getCity().getId()));
+        candidateStore.add(candidate);
     }
 
     public Object findById(int id) {
-        return store.findById(id);
+        return candidateStore.findById(id);
     }
 }

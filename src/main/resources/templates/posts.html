@@ -8,6 +8,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Имя</th>
                 <th scope="col">Описание</th>
+                <th scope="col">Город</th>
                 <th scope="col">Добавлен</th>
             </tr>
             </thead>
@@ -27,6 +28,7 @@
                     </span>
                 </td>
                 <td th:text="${post.description}"></td>
+                <td th:text="${post.city.name}"></td>
                 <td th:text="${post.created}"></td>
             </tr>
             </tbody>
