@@ -32,7 +32,7 @@ public class PostService {
         store.add(post);
     }
 
-    public Object findById(int id) {
+    public Post findById(int id) {
         return store.findById(id);
     }
 }

@@ -5,21 +5,24 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Имя</th>
-                <th scope="col">Описание</th>
-                <th scope="col">Город</th>
-                <th scope="col">Добавлен</th>
+                <th scope="col" width="1%">#</th>
+                <th scope="col" width="30%">Имя</th>
+                <th scope="col" width="25%">Описание</th>
+                <th scope="col" width="15%">Город</th>
+                <th scope="col" width="10%">Добавлен</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="candidate: ${candidates}">
                 <td th:text="${candidate.id}"></td>
                 <td>
-                    <a th:href="@{|/formUpdateCandidate/${candidate.id}|}">
-                        <i class="fa fa-edit"></i>
-                    </a>
-                    <span th:text="${candidate.name}"></span>
+                    <div class="name_and-photo">
+                        <a th:href="@{|/formUpdateCandidate/${candidate.id}|}">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <span th:text="${candidate.name}"></span>
+                        <img th:width="150" th:high="150" th:src="@{|/photoCandidate/${candidate.id}|}">
+                    </div>
                 </td>
                 <td th:text="${candidate.description}"></td>
                 <td th:text="${candidate.city.name}"></td>

@@ -10,12 +10,15 @@ public class Candidate implements Serializable {
     private City city;
     private String description;
     private LocalDate created;
+    private byte[] photo;
 
-    public Candidate(int id, String name, String description, City city, LocalDate created) {
+
+    public Candidate(int id, String name, String description, City city, byte[] photo, LocalDate created) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.city = city;
+        this.photo = photo;
         this.created = created;
     }
 
@@ -57,6 +60,14 @@ public class Candidate implements Serializable {
 
     public void setCreated(LocalDate created) {
         this.created = created;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 
     @Override

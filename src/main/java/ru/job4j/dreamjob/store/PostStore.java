@@ -32,7 +32,7 @@ public class PostStore {
         posts.put(post.getId(), post);
     }
 
-    public Object findById(int id) {
+    public Post findById(int id) {
         return posts.get(id);
     }
 

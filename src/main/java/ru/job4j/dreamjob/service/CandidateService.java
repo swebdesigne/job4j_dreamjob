@@ -32,7 +32,7 @@ public class CandidateService {
         candidateStore.add(candidate);
     }
 
-    public Object findById(int id) {
+    public Candidate findById(int id) {
         return candidateStore.findById(id);
     }
 }

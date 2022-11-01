@@ -18,9 +18,9 @@ public class CandidateStore {
     private final AtomicInteger inc = new AtomicInteger(3);
 
     public CandidateStore() {
-        candidates.put(1, new Candidate(1, "Junior Java Job", "Candidate 1", new City(), LocalDate.now()));
-        candidates.put(2, new Candidate(2, "Middle Java Job", "Candidate 2", new City(), LocalDate.now()));
-        candidates.put(3, new Candidate(3, "Senior Java Job", "Candidate 3", new City(), LocalDate.now()));
+        candidates.put(1, new Candidate(1, "Junior Java Job", "Candidate 1", new City(), new byte[0], LocalDate.now()));
+        candidates.put(2, new Candidate(2, "Middle Java Job", "Candidate 2", new City(), new byte[0], LocalDate.now()));
+        candidates.put(3, new Candidate(3, "Senior Java Job", "Candidate 3", new City(), new byte[0], LocalDate.now()));
     }
 
     public Collection<Candidate> findAll() {
@@ -32,7 +32,7 @@ public class CandidateStore {
         candidates.put(candidate.getId(), candidate);
     }
 
-    public Object findById(int id) {
+    public Candidate findById(int id) {
         return candidates.get(id);
     }
 
