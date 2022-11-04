@@ -8,6 +8,9 @@ target
 # Log file
 *.log
 
+# Liquibase H2
+testdb.*
+
 # BlueJ files
 *.ctxt
 
