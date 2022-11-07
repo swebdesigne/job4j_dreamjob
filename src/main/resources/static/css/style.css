@@ -22,3 +22,11 @@ nav {
     grid-gap: 15px;
     padding: 5px 0;
 }
+#block_success {
+    text-align: center;
+    color: darkseagreen;
+}
+#block_fail {
+    text-align: center;
+    color: orangered;
+}
