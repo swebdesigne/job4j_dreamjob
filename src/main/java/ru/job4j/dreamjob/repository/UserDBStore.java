@@ -47,4 +47,31 @@ public class UserDBStore {
         return Optional.empty();
     }
 
+    public Optional<User> findUserByEmailAndPassword(String email, String password) {
+        LOGGER.info("Поиск пользователя по email и паролю");
+        try (Connection cn = pool.getConnection();
+             PreparedStatement ps = cn.prepareStatement(
+                     "SELECT * FROM users WHERE email = ? AND password = ?"
+             )
+        ) {
+            ps.setString(1, email);
+            ps.setString(2, password);
+            try (ResultSet it = ps.executeQuery()) {
+                if (it.next()) {
+                    return Optional.of(createUser(it));
+                }
+            }
+        } catch (SQLException e) {
+            LOGGER.error("Поиск пользователся не удался", e.getCause());
+        }
+        return Optional.empty();
+    }
+
+    private User createUser(ResultSet it) throws SQLException {
+        return new User(
+                it.getInt("id"),
+                it.getString("name"),
+                it.getString("email"),
+                it.getString("password"));
+    }
 }

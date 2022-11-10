@@ -9,6 +9,13 @@ footer {
 nav {
     margin-bottom: 20px;
 }
+#authorization,
+.login{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+}
+
 .form-check {
     margin-bottom: 10px;
 }
