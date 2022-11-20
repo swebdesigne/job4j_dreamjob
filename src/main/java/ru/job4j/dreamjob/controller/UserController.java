@@ -28,8 +28,9 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String registration(@ModelAttribute User user) {
+    public String registration(@ModelAttribute User user, HttpServletRequest rq) {
         Optional<User> regUser = userService.add(user);
+        UserHttpSessionUtil.setUser(rq, user);
         if (regUser.isEmpty()) {
             return "redirect:/fail";
         }
